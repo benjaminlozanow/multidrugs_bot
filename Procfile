@@ -1,0 +1,1 @@
+worker: python multidrugs_bot.py
