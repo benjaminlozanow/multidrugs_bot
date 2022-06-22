@@ -72,7 +72,7 @@ class Drugs:
         except:
             logging.info("The user input could not be .split()")
             self.warning = False
-            self.description = "Sorry, there was a problem processing your tweet."
+            self.description = "Sorry, there was a problem processing your tweet. Remember tag me on a tweet and separate the drugs by a space (no #) i.e. multidrugsbot drug1 drug2"
             # client.create_tweet(text="Sorry, there was a problem processing your tweet.", in_reply_to_tweet_id=tweet_id)
         else:
             if len(text) == 3 or len(text) == 4:
@@ -81,7 +81,7 @@ class Drugs:
             else:
                 #Check if there are more than two inputs in the tweet
                 self.warning = False
-                self.description = "Sorry, the format is not correct."
+                self.description = "Sorry, the format is not correct. Remember tag me on a tweet and separate the drugs by a space (no #) i.e. multidrugsbot drug1 drug2"
                 logging.info("There are more than 3 inputs")
                 # client.create_tweet(text="Sorry, the format is not correct.", in_reply_to_tweet_id=tweet_id)
 
@@ -105,7 +105,7 @@ class Drugs:
                 self.rxcui_1 = rxcui
         else:
             self.warning = False
-            self.description = "Sorry, there was a problem processing your tweet."
+            self.description = "Sorry, there was a problem processing your tweet. Remember tag me on a tweet and separate the drugs by a space (no #) i.e. multidrugsbot drug1 drug2"
             logging.error(r.url)
             logging.error(r.status_code)
 
@@ -122,7 +122,7 @@ class Drugs:
                 self.rxcui_2 = rxcui 
         else:
             self.warning = False
-            self.description = "Sorry, there was a problem processing your tweet."
+            self.description = "Sorry, there was a problem processing your tweet. Remember tag me on a tweet and separate the drugs by a space (no #) i.e. multidrugsbot drug1 drug2"
             logging.error(r.url)
             logging.error(r.status_code)   
         
@@ -232,7 +232,7 @@ def random_tweets():
 
         new_tweet = [f'#{drugs.drug_name_1} & #{drugs.drug_name_2}', drugs.description]
         client.create_tweet(text="\n".join(new_tweet))
-        time.sleep(3600)
+        time.sleep(7200)
 
 t1 = threading.Thread(target=reply_mentioned_tweets)  
 t2 = threading.Thread(target=random_tweets)
